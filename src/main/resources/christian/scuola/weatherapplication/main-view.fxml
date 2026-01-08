@@ -72,7 +72,7 @@
 
     <VBox alignment="CENTER" spacing="5" style="-fx-background-color: rgba(0,0,0,0.1); -fx-background-radius: 20; -fx-padding: 10;">
         <Label text="ANDAMENTO TEMPERATURE 24H" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px;"/>
-        <LineChart fx:id="tempChart" prefHeight="220.0" legendVisible="false" createSymbols="false">
+        <LineChart fx:id="tempChart" animated="false" prefHeight="220.0" legendVisible="false" createSymbols="false">
             <xAxis>
                 <CategoryAxis side="BOTTOM" tickLabelFill="white" fx:id="xAxis" />
             </xAxis>

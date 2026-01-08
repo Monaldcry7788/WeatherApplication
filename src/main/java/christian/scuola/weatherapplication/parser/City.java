@@ -2,6 +2,7 @@ package christian.scuola.weatherapplication.parser;
 
 public class City {
     private String name;
+    private String country;
     private long sunrise;
     private long sunset;
     private int population;
@@ -13,6 +14,16 @@ public class City {
     public void setName(String name)
     {
         this.name = name;
+    }
+
+    public String getCountry()
+    {
+        return country;
+    }
+
+    public void setCountry(String country)
+    {
+        this.country = country;
     }
 
     public long getSunset()

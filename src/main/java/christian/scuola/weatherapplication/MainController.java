@@ -25,6 +25,7 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 public class MainController {
 
@@ -34,6 +35,7 @@ public class MainController {
     @FXML private HBox forecastContainer;
     @FXML private Label populationLabel, altitudeLabel, sunriseLabel, sunsetLabel;
     @FXML private LineChart<String, Number> tempChart;
+    @FXML private javafx.scene.chart.CategoryAxis xAxis;
 
     private final String API_KEY = "d4b5f3632a012ef5ed2f2ba550d7ff05";
     private final String BASE_URL = "https://api.openweathermap.org/data/2.5/forecast?q=%s&appid=%s&units=metric&lang=it";
@@ -84,7 +86,7 @@ public class MainController {
         Platform.runLater(() -> {
             Item current = data.getList().get(0);
 
-            cityName.setText(data.getCity().getName());
+            cityName.setText(data.getCity().getName() + ", " + data.getCity().getCountry());
             currentTemp.setText(Math.round(current.getMain().getTemp()) + "°");
             weatherDescription.setText(current.getWeather().get(0).getDescription());
 
@@ -99,11 +101,13 @@ public class MainController {
             pressure.setText(current.getMain().getPressure() + " hPa");
             feelsLikeTemp.setText(Math.round(current.getMain().getFeelsLike()) + "°");
 
-            java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofPattern("HH:mm");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
             sunriseLabel.setText(Instant.ofEpochSecond(data.getCity().getSunrise()).atZone(ZoneId.systemDefault()).format(dtf));
             sunsetLabel.setText(Instant.ofEpochSecond(data.getCity().getSunset()).atZone(ZoneId.systemDefault()).format(dtf));
 
+            xAxis.getCategories().clear();
             tempChart.getData().clear();
+
             XYChart.Series<String, Number> series = new XYChart.Series<>();
             for (int i = 0; i < 8; i++) {
                 Item item = data.getList().get(i);
