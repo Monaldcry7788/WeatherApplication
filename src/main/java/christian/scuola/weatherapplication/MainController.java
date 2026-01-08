@@ -2,6 +2,7 @@ package christian.scuola.weatherapplication;
 
 import christian.scuola.weatherapplication.parser.Item;
 import christian.scuola.weatherapplication.parser.Response;
+
 import com.google.gson.Gson;
 
 import javafx.application.Platform;
@@ -22,7 +23,9 @@ import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+
 import java.nio.charset.StandardCharsets;
+
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
