@@ -93,5 +93,5 @@
         </ScrollPane>
     </VBox>
 
-    <Label fx:id="statusMsg" text="Dati pronti" style="-fx-text-fill: lightgrey; -fx-font-size: 11px; -fx-font-style: italic;"/>
+    <Label fx:id="statusMsg" style="-fx-text-fill: lightgrey; -fx-font-size: 11px; -fx-font-style: italic;"/>
 </VBox>
