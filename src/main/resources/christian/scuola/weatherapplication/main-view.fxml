@@ -1,39 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" spacing="15.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="christian.scuola.weatherapplication.MainController"
-      style="-fx-background-color: linear-gradient(to bottom, midnightblue, royalblue, lightskyblue);">
+<VBox alignment="TOP_CENTER" prefHeight="1028.0" prefWidth="520.0" spacing="15.0" style="-fx-background-color: linear-gradient(to bottom, midnightblue, royalblue, lightskyblue);" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="christian.scuola.weatherapplication.MainController">
 
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <HBox spacing="10.0" alignment="CENTER">
-        <TextField fx:id="cityInput" HBox.hgrow="ALWAYS" prefHeight="40.0" promptText="Inserisci luogo"
-                   style="-fx-background-radius: 20; -fx-padding: 0 15 0 15; -fx-font-size: 14px;"/>
-        <Button text="🔍" onAction="#onButtonClick" prefHeight="40.0" prefWidth="60.0"
-                style="-fx-background-radius: 20; -fx-background-color: white; -fx-cursor: hand; -fx-font-size: 16px;"/>
+    <HBox alignment="CENTER" spacing="10.0">
+        <TextField fx:id="cityInput" prefHeight="40.0" promptText="Inserisci luogo" style="-fx-background-radius: 20; -fx-padding: 0 15 0 15; -fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
+        <Button onAction="#onButtonClick" prefHeight="40.0" prefWidth="60.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-cursor: hand; -fx-font-size: 16px;" text="🔍" />
     </HBox>
 
-    <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: rgba(255,255,255,0.15); -fx-background-radius: 25; -fx-padding: 15;">
-        <Label fx:id="cityName" text="Seleziona" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+    <VBox alignment="CENTER" prefHeight="297.0" prefWidth="480.0" spacing="5.0" style="-fx-background-color: rgba(255,255,255,0.15); -fx-background-radius: 25; -fx-padding: 15;">
+        <Label fx:id="cityName" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: white;" text="Seleziona" />
 
         <HBox alignment="CENTER" spacing="20">
-            <Label fx:id="populationLabel" text="Pop: --" style="-fx-text-fill: lightgrey; -fx-font-size: 14px;"/>
-            <Label fx:id="altitudeLabel" text="Alt: -- m" style="-fx-text-fill: lightgrey; -fx-font-size: 14px;"/>
+            <Label fx:id="populationLabel" style="-fx-text-fill: lightgrey; -fx-font-size: 14px;" text="Pop: --" />
+            <Label fx:id="altitudeLabel" style="-fx-text-fill: lightgrey; -fx-font-size: 14px;" text="Alt: -- m" />
         </HBox>
 
-        <ImageView fx:id="weatherIcon" fitHeight="110.0" fitWidth="110.0" preserveRatio="true" />
-        <Label fx:id="currentTemp" text="--°" style="-fx-font-size: 56px; -fx-font-weight: bold; -fx-text-fill: white;"/>
-        <Label fx:id="weatherDescription" text="Nessun dato disponibile" style="-fx-font-size: 20px; -fx-text-fill: white; -fx-text-transform: capitalize;"/>
+        <ImageView fx:id="weatherIcon" fitHeight="93.0" fitWidth="95.0" preserveRatio="true" />
+        <Label fx:id="currentTemp" prefHeight="61.0" prefWidth="58.0" style="-fx-font-size: 56px; -fx-font-weight: bold; -fx-text-fill: white;" text="--°" />
+        <Label fx:id="weatherDescription" prefHeight="30.0" prefWidth="214.0" style="-fx-font-size: 20px; -fx-text-fill: white; -fx-text-transform: capitalize;" text="Nessun dato disponibile" />
     </VBox>
 
     <GridPane hgap="12.0" vgap="12.0">
@@ -42,50 +45,54 @@
             <ColumnConstraints percentWidth="50.0" />
         </columnConstraints>
 
-        <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 15; -fx-padding: 10;">
-            <Label text="UMIDITA'" style="-fx-font-size: 11px; -fx-text-fill: dimgrey; -fx-font-weight: bold;"/>
-            <Label fx:id="humidity" text="--" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        <VBox alignment="CENTER" prefHeight="46.0" prefWidth="228.0" style="-fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 15; -fx-padding: 10;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <Label style="-fx-font-size: 11px; -fx-text-fill: dimgrey; -fx-font-weight: bold;" text="UMIDITA'" />
+            <Label fx:id="humidity" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="--" />
         </VBox>
-        <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0" style="-fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 15; -fx-padding: 10;">
-            <Label text="VENTO" style="-fx-font-size: 11px; -fx-text-fill: dimgrey; -fx-font-weight: bold;"/>
-            <Label fx:id="windSpeed" text="--" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-        </VBox>
-
-        <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 15; -fx-padding: 10;">
-            <Label text="PRESSIONE" style="-fx-font-size: 11px; -fx-text-fill: dimgrey; -fx-font-weight: bold;"/>
-            <Label fx:id="pressure" text="--" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-        </VBox>
-        <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 15; -fx-padding: 10;">
-            <Label text="PERCEPITA" style="-fx-font-size: 11px; -fx-text-fill: dimgrey; -fx-font-weight: bold;"/>
-            <Label fx:id="feelsLikeTemp" text="--" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        <VBox alignment="CENTER" style="-fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 15; -fx-padding: 10;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <Label style="-fx-font-size: 11px; -fx-text-fill: dimgrey; -fx-font-weight: bold;" text="VENTO" />
+            <Label fx:id="windSpeed" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="--" />
         </VBox>
 
-        <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-background-color: rgba(255,255,255,0.6); -fx-background-radius: 15; -fx-padding: 10;">
-            <Label text="ALBA" style="-fx-font-size: 11px; -fx-text-fill: orangered; -fx-font-weight: bold;"/>
-            <Label fx:id="sunriseLabel" text="--" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        <VBox alignment="CENTER" style="-fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 15; -fx-padding: 10;" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <Label style="-fx-font-size: 11px; -fx-text-fill: dimgrey; -fx-font-weight: bold;" text="PRESSIONE" />
+            <Label fx:id="pressure" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="--" />
         </VBox>
-        <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" style="-fx-background-color: rgba(255,255,255,0.6); -fx-background-radius: 15; -fx-padding: 10;">
-            <Label text="TRAMONTO" style="-fx-font-size: 11px; -fx-text-fill: darkslategray; -fx-font-weight: bold;"/>
-            <Label fx:id="sunsetLabel" text="--" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        <VBox alignment="CENTER" style="-fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 15; -fx-padding: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label style="-fx-font-size: 11px; -fx-text-fill: dimgrey; -fx-font-weight: bold;" text="PERCEPITA" />
+            <Label fx:id="feelsLikeTemp" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="--" />
         </VBox>
+
+        <VBox alignment="CENTER" prefHeight="51.0" prefWidth="234.0" style="-fx-background-color: rgba(255,255,255,0.6); -fx-background-radius: 15; -fx-padding: 10;" GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <Label style="-fx-font-size: 11px; -fx-text-fill: orangered; -fx-font-weight: bold;" text="ALBA" />
+            <Label fx:id="sunriseLabel" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="--" />
+        </VBox>
+        <VBox alignment="CENTER" style="-fx-background-color: rgba(255,255,255,0.6); -fx-background-radius: 15; -fx-padding: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label style="-fx-font-size: 11px; -fx-text-fill: darkslategray; -fx-font-weight: bold;" text="TRAMONTO" />
+            <Label fx:id="sunsetLabel" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="--" />
+        </VBox>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
     </GridPane>
 
     <VBox alignment="CENTER" spacing="5" style="-fx-background-color: rgba(0,0,0,0.1); -fx-background-radius: 20; -fx-padding: 10;">
-        <Label text="ANDAMENTO TEMPERATURE 24H" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px;"/>
-        <LineChart fx:id="tempChart" animated="false" prefHeight="220.0" legendVisible="false" createSymbols="false">
+        <Label style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px;" text="ANDAMENTO TEMPERATURE 24H" />
+        <LineChart fx:id="tempChart" animated="false" createSymbols="false" legendVisible="false" prefHeight="193.0" prefWidth="486.0">
             <xAxis>
                 <CategoryAxis side="BOTTOM" tickLabelFill="white" fx:id="xAxis" />
             </xAxis>
             <yAxis>
-                <NumberAxis side="LEFT" tickLabelFill="white" forceZeroInRange="false" fx:id="yAxis" />
+                <NumberAxis fx:id="yAxis" forceZeroInRange="false" side="LEFT" tickLabelFill="white" />
             </yAxis>
         </LineChart>
     </VBox>
 
     <VBox spacing="10.0">
-        <Label text="PREVISIONI PROSSIME 24 ORE" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 15px;"/>
-        <ScrollPane fitToHeight="true" minHeight="165.0" vbarPolicy="NEVER"
-                    style="-fx-background: transparent; -fx-background-color: transparent; -fx-border-color: transparent;">
+        <Label style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 15px;" text="PREVISIONI PROSSIME 24 ORE" />
+        <ScrollPane fitToHeight="true" minHeight="135.0" prefHeight="135.0" prefWidth="480.0" style="-fx-background: transparent; -fx-background-color: transparent; -fx-border-color: transparent;" vbarPolicy="NEVER">
             <content>
                 <HBox fx:id="forecastContainer" spacing="15.0" style="-fx-padding: 10;">
                 </HBox>
@@ -93,5 +100,5 @@
         </ScrollPane>
     </VBox>
 
-    <Label fx:id="statusMsg" style="-fx-text-fill: lightgrey; -fx-font-size: 11px; -fx-font-style: italic;"/>
+    <Label fx:id="statusMsg" style="-fx-text-fill: lightgrey; -fx-font-size: 11px; -fx-font-style: italic;" />
 </VBox>

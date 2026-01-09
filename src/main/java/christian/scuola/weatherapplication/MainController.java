@@ -124,15 +124,6 @@ public class MainController {
                 forecastContainer.getChildren().add(createHourCard(data.getList().get(i)));
             }
 
-            Platform.runLater(() -> {
-                Stage stage = (Stage) cityName.getScene().getWindow();
-
-                if (!stage.isMaximized()) {
-                    stage.sizeToScene();
-                    stage.centerOnScreen();
-                }
-            });
-
             statusMsg.setText("Ultimo aggiornamento effettuato con successo");
         });
     }

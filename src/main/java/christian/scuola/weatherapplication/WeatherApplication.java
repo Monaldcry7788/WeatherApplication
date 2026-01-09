@@ -16,6 +16,7 @@ public class WeatherApplication extends Application
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Meteo Strano");
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 }
